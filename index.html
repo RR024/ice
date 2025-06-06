@@ -1,0 +1,190 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFB6C1;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#FFF8DC;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Floating elements -->
+    <circle id="bubble" r="3" fill="rgba(255,255,255,0.6)"/>
+    
+    <!-- Animation definitions -->
+    <style>
+      .bg-circle {
+        animation: float 4s ease-in-out infinite;
+      }
+      
+      .bg-circle:nth-child(2) { animation-delay: -1s; }
+      .bg-circle:nth-child(3) { animation-delay: -2s; }
+      .bg-circle:nth-child(4) { animation-delay: -3s; }
+      
+      @keyframes float {
+        0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        50% { transform: translate(0, -10px) scale(1.1); opacity: 0.8; }
+      }
+      
+      .ice-cream-part {
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+      }
+      
+      .cone {
+        animation-name: slideFromBottom;
+        animation-delay: 0.5s;
+      }
+      
+      .scoop1 {
+        animation-name: slideFromLeft;
+        animation-delay: 1s;
+      }
+      
+      .scoop2 {
+        animation-name: slideFromRight;
+        animation-delay: 1.2s;
+      }
+      
+      .scoop3 {
+        animation-name: slideFromTop;
+        animation-delay: 1.4s;
+      }
+      
+      .cherry {
+        animation-name: dropFromTop;
+        animation-delay: 1.8s;
+      }
+      
+      .drips {
+        animation-name: fadeIn;
+        animation-delay: 2.2s;
+        animation-duration: 0.5s;
+      }
+      
+      @keyframes slideFromBottom {
+        0% { transform: translate(0, 200px); opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 1; }
+      }
+      
+      @keyframes slideFromLeft {
+        0% { transform: translate(-150px, 0); opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 1; }
+      }
+      
+      @keyframes slideFromRight {
+        0% { transform: translate(150px, 0); opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 1; }
+      }
+      
+      @keyframes slideFromTop {
+        0% { transform: translate(0, -100px); opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 1; }
+      }
+      
+      @keyframes dropFromTop {
+        0% { transform: translate(0, -150px); opacity: 0; }
+        70% { transform: translate(0, 5px); opacity: 1; }
+        85% { transform: translate(0, -2px); opacity: 1; }
+        100% { transform: translate(0, 0); opacity: 1; }
+      }
+      
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="200" fill="url(#skyGradient)"/>
+  
+  <!-- Floating background elements -->
+  <use href="#bubble" class="bg-circle" x="30" y="40"/>
+  <use href="#bubble" class="bg-circle" x="160" y="60"/>
+  <use href="#bubble" class="bg-circle" x="50" y="150"/>
+  <use href="#bubble" class="bg-circle" x="170" y="130"/>
+  
+  <!-- Text Elements -->
+  <text x="100" y="25" text-anchor="middle" fill="#FF69B4" font-family="Arial, sans-serif" font-size="14" font-weight="bold" class="ice-cream-part cherry">
+    Intha unaku ice cream...😅😁
+  </text>
+  
+  <text x="100" y="180" text-anchor="middle" fill="#8B4513" font-family="Arial, sans-serif" font-size="10" font-weight="normal" class="ice-cream-part drips">
+    Intha Ice Cream pothuma...🤭😂
+  </text>
+
+  <!-- Waffle Cone -->
+  <g class="ice-cream-part cone">
+    <polygon points="95,75 105,75 100,120" 
+             fill="#D2691E" 
+             stroke="#8B4513" 
+             stroke-width="1"/>
+    
+    <!-- Waffle Pattern on Cone -->
+    <line x1="96" y1="80" x2="104" y2="80" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="96.5" y1="85" x2="103.5" y2="85" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="97" y1="90" x2="103" y2="90" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="97.5" y1="95" x2="102.5" y2="95" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="98" y1="100" x2="102" y2="100" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="98.5" y1="105" x2="101.5" y2="105" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="99" y1="110" x2="101" y2="110" stroke="#8B4513" stroke-width="0.3"/>
+    
+    <!-- Diagonal waffle lines -->
+    <line x1="96" y1="78" x2="100" y2="115" stroke="#8B4513" stroke-width="0.3"/>
+    <line x1="104" y1="78" x2="100" y2="115" stroke="#8B4513" stroke-width="0.3"/>
+  </g>
+  
+  <!-- Bottom Scoop (Strawberry) -->
+  <g class="ice-cream-part scoop1">
+    <circle cx="100" cy="70" r="8" 
+            fill="#FFB6C1" 
+            stroke="#FF69B4" 
+            stroke-width="0.5"/>
+    <ellipse cx="97" cy="68" rx="2.5" ry="2" fill="#FFC0CB" opacity="0.7"/>
+  </g>
+  
+  <!-- Middle Scoop (Vanilla) -->
+  <g class="ice-cream-part scoop2">
+    <circle cx="100" cy="60" r="8" 
+            fill="#FFF8DC" 
+            stroke="#F0E68C" 
+            stroke-width="0.5"/>
+    <ellipse cx="97" cy="58" rx="2.5" ry="2" fill="#FFFACD" opacity="0.8"/>
+  </g>
+  
+  <!-- Top Scoop (Chocolate) -->
+  <g class="ice-cream-part scoop3">
+    <circle cx="100" cy="50" r="8" 
+            fill="#D2691E" 
+            stroke="#8B4513" 
+            stroke-width="0.5"/>
+    <ellipse cx="97" cy="48" rx="2.5" ry="2" fill="#F4A460" opacity="0.7"/>
+  </g>
+  
+  <!-- Cherry on Top -->
+  <g class="ice-cream-part cherry">
+    <circle cx="100" cy="44" r="1.5" 
+            fill="#DC143C" 
+            stroke="#8B0000" 
+            stroke-width="0.3"/>
+    
+    <!-- Cherry Stem -->
+    <path d="M 100 42.5 Q 100.5 40 101 38" 
+          stroke="#228B22" 
+          stroke-width="0.5" 
+          fill="none"/>
+  </g>
+  
+  <!-- Ice cream drips -->
+  <g class="ice-cream-part drips">
+    <path d="M 95 77 Q 94.5 80 95 82" 
+          fill="#FFB6C1" 
+          stroke="#FF69B4" 
+          stroke-width="0.3"/>
+    <path d="M 105 77 Q 105.5 80 105 82" 
+          fill="#FFF8DC" 
+          stroke="#F0E68C" 
+          stroke-width="0.3"/>
+  </g>
+</svg>  
